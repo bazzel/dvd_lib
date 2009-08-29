@@ -1,6 +1,7 @@
 - title "Discs"
+- javascript 'discs'
 
-%ul.items
+%ul#discs.items
   = render :partial => 'disc', :collection => @discs
   =render :file => 'discs/new'
 %div{:style => "clear: both;"}

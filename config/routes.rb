@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :discs
+  map.resources :discs, :collection => { :sort => :post }
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -37,6 +37,12 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
+  # See http://railscasts.com/episodes/88-dynamic-select-menus
+  # how to generate javascripts files.
+  # For Rails 2.1+ you must include the following line
+  # or you will get ActionController::RoutingError (No route matches "/javascripts/dynamic_states.js" with {:method=>:get}).
+  map.js ':controller/:action.:format'
+  
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.

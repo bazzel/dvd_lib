@@ -1,0 +1,9 @@
+$(function(){
+  $('#discs').sortable({
+      items:       '.item.disc',
+      placeholder: 'highlight',
+      update:      function(){
+                     $.post("<%= sort_discs_path %>", $(this).sortable('serialize'));
+                   }
+  });
+})

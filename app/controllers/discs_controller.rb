@@ -44,4 +44,13 @@ class DiscsController < ApplicationController
     flash[:notice] = "Successfully destroyed disc."
     redirect_to discs_url
   end
+
+  def sort
+    # Handle calls made by offer dragging...
+    params[:disc].each_with_index do |id, index|
+      Disc.update_all(['position=?', index+1], ['id=?', id])
+    end
+    render :nothing => true
+  end
+
 end

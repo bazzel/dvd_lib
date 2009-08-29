@@ -64,7 +64,8 @@ a {
 
 ul.items {list-style-type:none;float:left;}
 ul.items li {float: left; width:96px; margin:0 0.9em 0.9em 0; padding: 0.4em;text-align:center;border: 1px solid #DDDDDD; background: #ECEDED; color: #333333; height: 115px;position:relative;}
-ul.items li h5 {cursor: move; margin: 0 0 0.4em; background: rgba(173,34,42,0.7); border: 1px solid #AD222A; color: #FFFFFF; font-weight: bold; display: block; font-size: 0.83em;}
+ul.items li h5 {margin: 0 0 0.4em; background: rgba(173,34,42,0.7); border: 1px solid #AD222A; color: #FFFFFF; font-weight: bold; display: block; font-size: 0.83em;}
+ul.items li.item h5 {cursor: move;}
 ul.items li a.edit{position:absolute; left:0.4em;bottom:0.4em; text-indent:-99999px;height:16px;width:16px;}
 ul.items li a.remove{position:absolute; right:0.4em;bottom:0.4em; text-indent:-99999px;height:16px;width:16px;}
 ul.items li a.disc-edit{background-image:url(/images/disc--pencil.png);}
