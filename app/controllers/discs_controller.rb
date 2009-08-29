@@ -1,6 +1,6 @@
 class DiscsController < ApplicationController
   def index
-    @discs = Disc.all
+    @discs = Disc.all(:order => 'position')
   end
   
   def show
