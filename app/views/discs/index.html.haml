@@ -1,0 +1,15 @@
+- title "Discs"
+
+%table
+  %tr
+    %th Number
+    %th Position
+  - for disc in @discs
+    %tr
+      %td= h disc.number
+      %td= h disc.position
+      %td= link_to 'Show', disc
+      %td= link_to 'Edit', edit_disc_path(disc)
+      %td= link_to 'Destroy', disc, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Disc", new_disc_path

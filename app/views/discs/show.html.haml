@@ -1,0 +1,15 @@
+- title "Disc"
+
+%p
+  %strong Number:
+  =h @disc.number
+%p
+  %strong Position:
+  =h @disc.position
+
+%p
+  = link_to "Edit", edit_disc_path(@disc)
+  |
+  = link_to "Destroy", @disc, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", discs_path
