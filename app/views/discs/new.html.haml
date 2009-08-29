@@ -1,5 +1,6 @@
-- title "New Disc"
-
-= render :partial => 'form'
-
-%p= link_to "Back to List", discs_path
+%li
+  %h5 New Disc
+  - form_for @disc do |f|
+    -# class_name is needed for jquery.validate
+    = f.text_field :number, :class => 'required'
+    = f.submit

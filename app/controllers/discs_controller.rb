@@ -1,6 +1,7 @@
 class DiscsController < ApplicationController
   def index
     @discs = Disc.all(:order => 'position')
+    @disc = Disc.new
   end
   
   def show
@@ -17,7 +18,9 @@ class DiscsController < ApplicationController
       flash[:notice] = "Successfully created disc."
       redirect_to @disc
     else
-      render :action => 'new'
+      flash[:error] = @disc.errors.full_messages
+      @discs = Disc.all(:order => 'position')
+      render :action => 'index'
     end
   end
   
