@@ -1,0 +1,16 @@
+- form_for @recording do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :position
+    %br
+    = f.text_field :position
+  %p
+    = f.label :disc_id
+    %br
+    = f.text_field :disc_id
+  %p
+    = f.submit "Submit"

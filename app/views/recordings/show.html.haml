@@ -1,0 +1,18 @@
+- title "Recording"
+
+%p
+  %strong Name:
+  =h @recording.name
+%p
+  %strong Position:
+  =h @recording.position
+%p
+  %strong Disc:
+  =h @recording.disc_id
+
+%p
+  = link_to "Edit", edit_recording_path(@recording)
+  |
+  = link_to "Destroy", @recording, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", recordings_path

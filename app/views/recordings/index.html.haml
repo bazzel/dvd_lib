@@ -1,0 +1,17 @@
+- title "Recordings"
+
+%table
+  %tr
+    %th Name
+    %th Position
+    %th Disc
+  - for recording in @recordings
+    %tr
+      %td= h recording.name
+      %td= h recording.position
+      %td= h recording.disc_id
+      %td= link_to 'Show', recording
+      %td= link_to 'Edit', edit_recording_path(recording)
+      %td= link_to 'Destroy', recording, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Recording", new_recording_path
