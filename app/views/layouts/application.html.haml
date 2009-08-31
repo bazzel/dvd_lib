@@ -15,6 +15,16 @@
     = google_jqueryui
     = javascript_include_tag 'application'
 
+    / Blueprint CSS
+    =# stylesheet_link_tag 'blueprint/screen', :media => "screen, projection"
+    =# stylesheet_link_tag 'blueprint/print', :media => "print"
+    /[if IE]
+      =# stylesheet_link_tag 'blueprint/ie', :media => "screen, projection"
+    = stylesheet_link_tag 'blueprint/plugins/fancy-type/screen', 'blueprint/plugins/buttons/screen', :media => "screen, projection"
+    / End Blueprint CSS
+
+    = silksprite_stylesheets
+    = stylesheet_link_tag "formtastic", "formtastic_changes"
     = stylesheet_link_tag 'application'
     = yield(:head)
   
