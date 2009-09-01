@@ -1,6 +1,6 @@
 class Disc < ActiveRecord::Base
   acts_as_list
-  attr_accessible :number, :position, :recording_attributes
+  attr_accessible :number, :position, :recordings_attributes
 
   validates_presence_of :number
   
