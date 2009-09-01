@@ -1,6 +1,19 @@
+- javascript 'discs'
+
 - semantic_form_for @disc do |f|
+  - content_for :head do
+    :javascript
+      var recording='#{generate_template(f, :recordings)}'
+      
   - f.inputs do
     = f.input :number
+
+  #recordings.nested
+    = link_to 'Add a recording', '#recording', :id => "add_recording"
+    - f.inputs do
+      - f.semantic_fields_for :recordings do |recording|
+        = render(:partial => 'recording', :locals => {:f => recording})
+
   - f.buttons do
     - button_tag("Update") do
       = cancel_link(discs_path)

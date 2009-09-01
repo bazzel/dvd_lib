@@ -1,0 +1,4 @@
+%li.recording
+  - f.inputs do
+    = f.input :name, :input_html => { :disabled => !f.object.new_record? }
+    / = f.input :_delete, :label => "Remove", :as => :boolean

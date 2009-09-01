@@ -6,4 +6,15 @@ $(function(){
                      $.post("<%= sort_discs_path %>", $(this).sortable('serialize'));
                    }
   });
+
+  $('#add_recording').click(function(event){
+    // Add HTML form for new recording before all other recordings. 
+    template = eval(this.hash.replace(/.*#/, ''));
+    $(replace_ids(template)).prependTo('#recordings > fieldset > ol');
+    // Remove clicked link.
+    $(event.target).remove();
+    $('#recordings > fieldset > ol :text:first').focus(); 
+    return false;
+  });
+
 })
