@@ -71,3 +71,7 @@ ul.items li a.remove{position:absolute; right:0.4em;bottom:0.4em; text-indent:-9
 ul.items li a.disc-edit{background-image:url(/images/disc--pencil.png);}
 ul.items li a.disc-remove{background-image:url(/images/disc--minus.png);}
 ul.items li form input{width: 90px;margin-top:0.4em;margin-bottom:0.4em;}
+
+.seen {
+	text-decoration: line-through;
+}

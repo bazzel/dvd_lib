@@ -1,5 +1,5 @@
 %li.item[disc]
   %h5= h disc.number
-  = link_to disc.title, disc
+  %div{:class => disc.seen? ? 'seen' : ''}= link_to disc.title, disc
   = link_to 'Edit', edit_disc_path(disc), :class => 'disc-edit edit'
   = link_to "Destroy", disc, :confirm => 'Are you sure?', :method => :delete, :class => 'disc-remove remove'
