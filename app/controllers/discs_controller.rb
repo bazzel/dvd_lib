@@ -16,7 +16,7 @@ class DiscsController < ApplicationController
     @disc = Disc.new(params[:disc])
     if @disc.save
       flash[:notice] = "Successfully created disc."
-      redirect_to @disc
+      redirect_to discs_url
     else
       flash[:error] = @disc.errors.full_messages
       @discs = Disc.all(:order => 'position')
@@ -32,7 +32,7 @@ class DiscsController < ApplicationController
     @disc = Disc.find(params[:id])
     if @disc.update_attributes(params[:disc])
       flash[:notice] = "Successfully updated disc."
-      redirect_to @disc
+      redirect_to discs_url
     else
       render :action => 'edit'
     end
