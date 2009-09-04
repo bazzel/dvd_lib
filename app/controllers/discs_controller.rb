@@ -1,6 +1,6 @@
 class DiscsController < ApplicationController
   def index
-    @discs = Disc.all(:order => 'position')
+    @discs = Disc.all(:order => 'position', :include => [:recordings, :latest_recording])
     @disc = Disc.new
   end
   
