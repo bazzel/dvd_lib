@@ -1,6 +1,6 @@
 class RecordingsController < ApplicationController
   def index
-    @recordings = Recording.seen.paginate(:per_page => 25, :page => params[:page])
+    @recordings = Recording.all.paginate(:per_page => 25, :page => params[:page])
   end
   
   def show

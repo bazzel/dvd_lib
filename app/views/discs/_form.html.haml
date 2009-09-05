@@ -1,6 +1,6 @@
 - javascript 'discs'
 
-- semantic_form_for @disc do |f|
+- semantic_form_for @disc, :html => { :multipart => true } do |f|
   - content_for :head do
     :javascript
       var recording='#{generate_template(f, :recordings)}'

@@ -11,6 +11,7 @@ class Disc < ActiveRecord::Base
   
   ## Delegates
   delegate :seen?, :to => :latest_recording, :allow_nil => true
+  delegate :photo, :to => :latest_recording, :allow_nil => true
 
   def title
     if recordings.empty?
