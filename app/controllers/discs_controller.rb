@@ -1,6 +1,6 @@
 class DiscsController < ApplicationController
   def index
-    @discs = Disc.all(:order => 'position', :include => [:recordings, :latest_recording])
+    @discs = Disc.all(:order => 'position', :include => [:recordings, :latest_recording]).paginate(:per_page => 17, :page => params[:page])
     @disc = Disc.new
   end
   

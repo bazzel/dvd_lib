@@ -1,17 +1,19 @@
-- title "Recordings"
+- title "History"
 
-%table
-  %tr
-    %th Name
-    %th Position
-    %th Disc
-  - for recording in @recordings
-    %tr
-      %td= h recording.name
-      %td= h recording.position
-      %td= h recording.disc_id
-      %td= link_to 'Show', recording
-      %td= link_to 'Edit', edit_recording_path(recording)
-      %td= link_to 'Destroy', recording, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "New Recording", new_recording_path
+.block
+  .secondary-navigation
+    %ul
+      %li.first.active= link_to 'List', recordings_path
+    .clear
+  .content
+    %h2.title= yield(:title)
+    .inner
+      %ul#recordings.list
+        = render :partial => 'recording', :collection => @recordings
+    
+      .actions-bar
+        .actions
+        = will_paginate @recordings
+        .clear
+  
+/ - content_for :sidebar, render(:partial => 'sidebar')

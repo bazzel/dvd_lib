@@ -1,7 +1,22 @@
 - title "Discs"
 - javascript 'discs'
 
-%ul#discs.items
-  = render :partial => 'disc', :collection => @discs
-  =render :file => 'discs/new'
-%div{:style => "clear: both;"}
+.block
+  .secondary-navigation
+    %ul
+      %li.first.active= link_to 'List', discs_path
+      / %li= link_to t('general.forms.new.title', :model => AdType.human_name.downcase), new_ad_type_path
+    .clear
+  .content
+    %h2.title= yield(:title)
+    .inner
+      %ul#discs.items
+        = render :partial => 'disc', :collection => @discs
+        =render :file => 'discs/new'
+    
+      .actions-bar
+        .actions
+        = will_paginate @ad_type
+        .clear
+  
+/ - content_for :sidebar, render(:partial => 'sidebar')

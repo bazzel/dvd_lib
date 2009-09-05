@@ -4,5 +4,6 @@ class Recording < ActiveRecord::Base
   attr_accessible :name, :position, :disc_id, :seen
   
   validates_presence_of :name
-  
+
+  named_scope :seen, :conditions => {:seen => true}
 end

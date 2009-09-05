@@ -1,0 +1,8 @@
+/* Override here any style definide by web-app-theme */
+
+/* flash-messages */
+
+.flash .message p {
+  font-size: 13px;
+  line-height: 1.45em;
+}
