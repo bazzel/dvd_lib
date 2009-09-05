@@ -2,4 +2,6 @@
   .left
     = image_tag(recording.photo.url(:small))
   .item
-    %p= recording.name
+    %div
+      %p.gray= h recording.name
+      %p= truncate(h(recording.description), 500)

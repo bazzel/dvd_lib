@@ -1,7 +1,8 @@
 - editable = f.object.new_record? || (f.object == @disc.latest_recording)
 %li.recording
-  - f.inputs do
-    = f.input :name, :input_html => { :disabled => !editable }
-    = f.input :seen, :input_html => { :disabled => !editable }
-    = f.input :photo, :input_html => { :disabled => !editable }
-    / = f.input :_delete, :label => "Remove", :as => :boolean
+  - if editable
+    - f.inputs do
+      = f.input :name, :input_html => { :disabled => !editable }
+      = f.input :seen, :input_html => { :disabled => !editable }
+      = f.input :description, :input_html => { :disabled => !editable }
+      = f.input :photo, :input_html => { :disabled => !editable }
