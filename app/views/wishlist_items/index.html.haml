@@ -1,0 +1,27 @@
+- title 'Wishlist'
+
+.block
+  .secondary-navigation
+    %ul
+      %li.first.active= link_to 'List', wishlist_items_path
+      %li= link_to 'New', new_wishlist_item_path
+    .clear
+  .content
+    %h2.title= yield(:title)
+    .inner
+      %table.table
+        %tr
+          %th.first= order(@search, :by => :name)
+          %th.last &nbsp;
+        - @wishlist_items.each do |wishlist_item|
+          %tr{:class => cycle("odd", "even")}
+            %td= h wishlist_item.name
+            %td.last
+              = link_to('Edit', edit_wishlist_item_path(wishlist_item)) + ' |'
+              = link_to 'Destroy', wishlist_item, :confirm => 'Are you sure', :method => :delete
+      .actions-bar
+        .actions
+        = will_paginate @wishlist_items
+        .clear
+  
+/ - content_for :sidebar, render(:partial => 'sidebar')

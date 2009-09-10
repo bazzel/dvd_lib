@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Recording do
   it {should validate_presence_of(:name)}
   it {should belong_to(:disc)}
+  it {should have_and_belong_to_many(:genres)}
 
   it "should only return Recordings marked as seen" do
     foo = Factory(:recording, :seen => true)

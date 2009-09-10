@@ -1,6 +1,6 @@
 # require File.dirname(__FILE__) + '/../spec_helper'
 #  
-# describe DiscsController do
+# describe GenresController do
 #   fixtures :all
 #   integrate_views
 #   
@@ -10,7 +10,7 @@
 #   end
 #   
 #   it "show action should render show template" do
-#     get :show, :id => Disc.first
+#     get :show, :id => Genre.first
 #     response.should render_template(:show)
 #   end
 #   
@@ -20,38 +20,38 @@
 #   end
 #   
 #   it "create action should render new template when model is invalid" do
-#     Disc.any_instance.stubs(:valid?).returns(false)
+#     Genre.any_instance.stubs(:valid?).returns(false)
 #     post :create
 #     response.should render_template(:new)
 #   end
 #   
 #   it "create action should redirect when model is valid" do
-#     Disc.any_instance.stubs(:valid?).returns(true)
+#     Genre.any_instance.stubs(:valid?).returns(true)
 #     post :create
-#     response.should redirect_to(discs_url)
+#     response.should redirect_to(genre_url(assigns[:genre]))
 #   end
 #   
 #   it "edit action should render edit template" do
-#     get :edit, :id => Disc.first
+#     get :edit, :id => Genre.first
 #     response.should render_template(:edit)
 #   end
 #   
 #   it "update action should render edit template when model is invalid" do
-#     Disc.any_instance.stubs(:valid?).returns(false)
-#     put :update, :id => Disc.first
+#     Genre.any_instance.stubs(:valid?).returns(false)
+#     put :update, :id => Genre.first
 #     response.should render_template(:edit)
 #   end
 #   
 #   it "update action should redirect when model is valid" do
-#     Disc.any_instance.stubs(:valid?).returns(true)
-#     put :update, :id => Disc.first
-#     response.should redirect_to(discs_url)
+#     Genre.any_instance.stubs(:valid?).returns(true)
+#     put :update, :id => Genre.first
+#     response.should redirect_to(genre_url(assigns[:genre]))
 #   end
 #   
 #   it "destroy action should destroy model and redirect to index action" do
-#     disc = Disc.first
-#     delete :destroy, :id => disc
-#     response.should redirect_to(discs_url)
-#     Disc.exists?(disc.id).should be_false
+#     genre = Genre.first
+#     delete :destroy, :id => genre
+#     response.should redirect_to(genres_url)
+#     Genre.exists?(genre.id).should be_false
 #   end
 # end

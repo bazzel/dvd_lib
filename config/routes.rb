@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :genres, :has_many => [ :discs ]
+
+  map.resources :wishlist_items
+
   map.resources :recordings
 
   map.resources :discs, :collection => { :sort => :post }

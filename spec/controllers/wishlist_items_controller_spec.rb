@@ -1,6 +1,6 @@
 # require File.dirname(__FILE__) + '/../spec_helper'
 #  
-# describe DiscsController do
+# describe WishlistItemsController do
 #   fixtures :all
 #   integrate_views
 #   
@@ -10,7 +10,7 @@
 #   end
 #   
 #   it "show action should render show template" do
-#     get :show, :id => Disc.first
+#     get :show, :id => WishlistItem.first
 #     response.should render_template(:show)
 #   end
 #   
@@ -20,38 +20,38 @@
 #   end
 #   
 #   it "create action should render new template when model is invalid" do
-#     Disc.any_instance.stubs(:valid?).returns(false)
+#     WishlistItem.any_instance.stubs(:valid?).returns(false)
 #     post :create
 #     response.should render_template(:new)
 #   end
 #   
 #   it "create action should redirect when model is valid" do
-#     Disc.any_instance.stubs(:valid?).returns(true)
+#     WishlistItem.any_instance.stubs(:valid?).returns(true)
 #     post :create
-#     response.should redirect_to(discs_url)
+#     response.should redirect_to(wishlist_item_url(assigns[:wishlist_item]))
 #   end
 #   
 #   it "edit action should render edit template" do
-#     get :edit, :id => Disc.first
+#     get :edit, :id => WishlistItem.first
 #     response.should render_template(:edit)
 #   end
 #   
 #   it "update action should render edit template when model is invalid" do
-#     Disc.any_instance.stubs(:valid?).returns(false)
-#     put :update, :id => Disc.first
+#     WishlistItem.any_instance.stubs(:valid?).returns(false)
+#     put :update, :id => WishlistItem.first
 #     response.should render_template(:edit)
 #   end
 #   
 #   it "update action should redirect when model is valid" do
-#     Disc.any_instance.stubs(:valid?).returns(true)
-#     put :update, :id => Disc.first
-#     response.should redirect_to(discs_url)
+#     WishlistItem.any_instance.stubs(:valid?).returns(true)
+#     put :update, :id => WishlistItem.first
+#     response.should redirect_to(wishlist_item_url(assigns[:wishlist_item]))
 #   end
 #   
 #   it "destroy action should destroy model and redirect to index action" do
-#     disc = Disc.first
-#     delete :destroy, :id => disc
-#     response.should redirect_to(discs_url)
-#     Disc.exists?(disc.id).should be_false
+#     wishlist_item = WishlistItem.first
+#     delete :destroy, :id => wishlist_item
+#     response.should redirect_to(wishlist_items_url)
+#     WishlistItem.exists?(wishlist_item.id).should be_false
 #   end
 # end

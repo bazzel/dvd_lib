@@ -35,6 +35,7 @@
           %ul
             %li{:class => controller.controller_path == 'discs' ? 'active' : ''}= link_to('Discs', discs_path)
             %li{:class => controller.controller_path == 'recordings' ? 'active' : ''}= link_to('History', recordings_path)
+            %li{:class => controller.controller_path == 'wishlist_items' ? 'active' : ''}= link_to('Wishlist', wishlist_items_path)
           .clear
       #wrapper
         #main

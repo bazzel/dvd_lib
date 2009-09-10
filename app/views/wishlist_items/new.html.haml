@@ -1,0 +1,14 @@
+- title 'New wishlist item'
+
+.block
+  .secondary-navigation
+    %ul
+      %li.first= link_to 'List', wishlist_items_path
+      %li.active= link_to 'New', new_wishlist_item_path
+    .clear
+  .content
+    %h2.title= yield(:title)
+    .inner
+      = render :partial => 'form'
+  
+/ - content_for :sidebar, render(:partial => 'sidebar')

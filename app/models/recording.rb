@@ -1,5 +1,9 @@
 class Recording < ActiveRecord::Base
+  default_scope :order => 'recordings.name'
+  
   belongs_to :disc
+  has_and_belongs_to_many :genres
+
   acts_as_list :scope => :disc
   # attr_accessible :name, :position, :disc_id, :seen, :photo
   
@@ -12,4 +16,5 @@ class Recording < ActiveRecord::Base
                             :url => Rails.env == 'development' ? ':rails_root/tmp/:attachment/:id/:style/:filename' : '/system/:attachment/:id/:style/:filename'
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
+    
 end

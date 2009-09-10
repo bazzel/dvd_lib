@@ -1,6 +1,9 @@
 class DiscsController < ApplicationController
   def index
-    @discs = Disc.all(:order => 'position', :include => [:recordings, :latest_recording]).paginate(:per_page => 17, :page => params[:page])
+    # @discs = Disc.all(:order => 'position', :include => [:recordings, :latest_recording]).paginate(:per_page => 17, :page => params[:page])
+    # a = Genre.find_by_name('Sci-Fi')
+    @discs = Disc.for_genre(params[:genre_id]).
+                  paginate(:per_page => 17, :page => params[:page])
     @disc = Disc.new
   end
   

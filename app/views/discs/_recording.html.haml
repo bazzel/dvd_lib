@@ -2,7 +2,8 @@
 %li.recording
   - if editable
     - f.inputs do
-      = f.input :name, :input_html => { :disabled => !editable }
-      = f.input :seen, :input_html => { :disabled => !editable }
-      = f.input :description, :input_html => { :disabled => !editable }
-      = f.input :photo, :input_html => { :disabled => !editable }
+      = f.input :name
+      = f.input :seen
+      = f.input :description
+      = f.input :photo
+      = f.input :genres, :as => :check_boxes

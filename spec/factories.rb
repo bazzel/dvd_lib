@@ -8,3 +8,7 @@ Factory.define(:recording) do |o|
   o.association :disc
   o.seen false
 end
+
+Factory.define(:genre) do |o|
+  o.name 'Genre'
+end

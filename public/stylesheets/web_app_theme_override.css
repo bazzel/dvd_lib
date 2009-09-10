@@ -6,3 +6,11 @@
   font-size: 13px;
   line-height: 1.45em;
 }
+
+.table th {
+  border-bottom: 3px solid #700000;
+}
+
+.table th a {
+  color: white;
+}

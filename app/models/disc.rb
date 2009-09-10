@@ -12,7 +12,20 @@ class Disc < ActiveRecord::Base
   ## Delegates
   delegate :seen?, :to => :latest_recording, :allow_nil => true
   delegate :photo, :to => :latest_recording, :allow_nil => true
+  # delegate :genres, :to => :latest_recording, :allow_nil => true
 
+  # We need Rails 2.3.2 for this (both 2.3.3 and 2.3.4 ignore :include option, 
+  # see https://rails.lighthouseapp.com/projects/8994/tickets/2998-named_scope-ignores-include-option)
+  named_scope :for_genre, lambda { |genre_id|
+    if genre_id
+      { :select => 'discs.*',
+        :conditions => { :'genres.id' => genre_id },
+        :include => {:latest_recording => [:genres]}  }
+      # { :include => {:latest_recording => [:genres]},
+      #   :conditions => { :'genres.id' => genre_id } }
+    end
+  }
+  
   def title
     if recordings.empty?
       '(Empty)'
