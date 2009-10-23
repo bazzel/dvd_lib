@@ -11,8 +11,8 @@ class Recording < ActiveRecord::Base
 
   named_scope :seen, :conditions => {:seen => true}
   
-  has_attached_file :photo, :styles => { :small => "64X64>" },
-                            :default_url => "/images/default_:style_photo.gif",
+  has_attached_file :photo, :styles => { :small => "64X64>", :iphone => '148x148>' },
+                            :default_url => "/images/default_:style_photo.png",
                             :url => Rails.env == 'development' ? ':rails_root/tmp/:attachment/:id/:style/:filename' : '/system/:attachment/:id/:style/:filename'
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']

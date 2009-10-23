@@ -1,0 +1,18 @@
+#genres.edgetoedge
+  .toolbar
+    %h1 Genres
+    = link_to('Back', '#', :class => 'back')
+  %ul
+    - @genres.each do |genre|
+      - unless (discs = Disc.for_genre(genre)).empty?
+        %li.arrow= link_to(genre.name, "#genre_#{genre.id}") + content_tag(:small, discs.size, :class => 'counter')
+      
+- @genres.each do |genre|
+  - unless Disc.for_genre(genre).empty?
+    %div[genre]{:class => 'edgetoedge'}
+      .toolbar
+        %h1= genre.name
+        = link_to('Back', '#', :class => 'back')
+      %ul
+        - Disc.for_genre(genre).each do |disc|
+          = render :partial => 'disc', :object => disc

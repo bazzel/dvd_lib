@@ -1,0 +1,15 @@
+- title "Discs"
+
+#home.edgetoedge
+  .toolbar
+    %h1= yield(:title)
+  %ul
+    %li.arrow= link_to('Discs', '#discs') + content_tag(:small, @search.count, :class => 'counter')
+    %li.arrow= link_to 'Genres', '#genres'
+    %li.arrow= link_to('Wishlist', '#wishlist_items') + content_tag(:small, WishlistItem.count, :class => 'counter')
+
+= render :partial => 'discs'
+    
+= render :partial => 'genres'
+
+= render :partial => 'wishlist_items'

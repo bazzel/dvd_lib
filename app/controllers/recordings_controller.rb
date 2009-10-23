@@ -23,13 +23,26 @@ class RecordingsController < ApplicationController
   
   def edit
     @recording = Recording.find(params[:id])
+
+    respond_to do |format|
+        format.html
+        format.iphone { render :layout => false }
+    end
   end
   
   def update
     @recording = Recording.find(params[:id])
     if @recording.update_attributes(params[:recording])
-      flash[:notice] = "Successfully updated recording."
-      redirect_to @recording
+      respond_to do |format|
+        format.iphone do  # action.iphone.erb
+          render :text => params[:id]
+        end
+          format.html do
+            flash[:notice] = "Successfully updated recording."
+            redirect_to @recording
+          end
+      end
+      
     else
       render :action => 'edit'
     end

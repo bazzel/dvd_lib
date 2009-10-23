@@ -1,0 +1,10 @@
+.seen {
+	text-decoration: line-through;
+}
+
+.photo { float:left;margin:0 6px 9px 0;}
+.name {color: black; }
+.genres {font-weight: normal; font-size: 14px;}
+.description {font-size: 14px; font-weight: normal; color: black;clear: both;
+	line-height: 1.5em;
+}

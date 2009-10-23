@@ -1,4 +1,6 @@
 class Genre < ActiveRecord::Base
+  default_scope :order => 'genres.name'
+
   attr_accessible :name
   
   validates_presence_of :name

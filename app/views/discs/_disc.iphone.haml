@@ -1,0 +1,8 @@
+- label = disc.number + ' ' + content_tag(:em, disc.title)
+
+- if disc.latest_recording
+  %li.arrow[disc.latest_recording]{:class => disc.seen? ? 'seen' : ''}
+    = link_to label, edit_recording_path(disc.latest_recording)
+- else
+  %li
+    = label

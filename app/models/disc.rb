@@ -21,8 +21,6 @@ class Disc < ActiveRecord::Base
       { :select => 'discs.*',
         :conditions => { :'genres.id' => genre_id },
         :include => {:latest_recording => [:genres]}  }
-      # { :include => {:latest_recording => [:genres]},
-      #   :conditions => { :'genres.id' => genre_id } }
     end
   }
   

@@ -1,10 +1,22 @@
 class DiscsController < ApplicationController
   def index
-    # @discs = Disc.all(:order => 'position', :include => [:recordings, :latest_recording]).paginate(:per_page => 17, :page => params[:page])
-    # a = Genre.find_by_name('Sci-Fi')
-    @discs = Disc.for_genre(params[:genre_id]).
-                  paginate(:per_page => 17, :page => params[:page])
+    @search = Disc.for_genre(params[:genre_id]).
+                  search(params[:search])
+    @discs = @search.paginate(:per_page => 17, :page => params[:page])
+    @genres = Genre.all
     @disc = Disc.new
+    
+    respond_to do |format|
+        format.html
+        format.iphone do  # action.iphone.erb
+          if params[:page].to_i > 1
+            render :layout => false, :partial => "discs"
+          else
+            render :layout => true
+          end
+        end
+    end
+    
   end
   
   def show

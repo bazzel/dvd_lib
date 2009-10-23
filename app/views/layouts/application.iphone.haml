@@ -1,0 +1,22 @@
+!!! Strict
+%html{html_attrs}
+  
+  %head
+    %title= sanitize(["DVD Lib", yield(:title)].reject{|k|k.blank?}.join(' - '))
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    -# See http://henrik.nyh.se/2008/05/rails-authenticity-token-with-jquery
+    - if protect_against_forgery?
+      :javascript
+        var AUTH_TOKEN = #{form_authenticity_token.inspect};
+
+    = google_jquery
+    = javascript_include_tag 'jqtouch.min', 'jquery.livequery', 'jquery.form'    
+    = javascript_include_tag 'iphone'
+
+    = stylesheet_link_tag 'jqt/jqtouch.min', 'jqt/themes/apple/theme.min'
+    = stylesheet_link_tag 'iphone'
+    = jqtouch_init :status_bar => 'black-translucent'
+    = yield(:head)
+  
+  %body
+    = yield

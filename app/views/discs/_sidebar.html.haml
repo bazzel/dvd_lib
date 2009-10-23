@@ -1,6 +1,7 @@
 .block
   %h3 Genres
   %ul.navigation
-    %li= link_to('All', discs_path)
-    - Genre.all.each do |genre|
-      %li= link_to(genre.name, genre_discs_path(genre))
+    %li= link_to("All (#{Disc.count})", discs_path)
+    - @genres.each do |genre|
+      - unless (discs = Disc.for_genre(genre)).empty?
+        %li= link_to("#{genre.name} (#{discs.size})", genre_discs_path(genre))

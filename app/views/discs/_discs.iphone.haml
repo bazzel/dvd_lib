@@ -1,0 +1,8 @@
+#discs.edgetoedge
+  .toolbar
+    %h1 Discs
+    = link_to('Home', '#', :class => 'back')
+  %ul
+    = render :partial => 'disc', :collection => @discs
+    - if @discs.next_page
+      %li= link_to("Load More Discs...", discs_path(:page => @discs.next_page), :target => "_replace")

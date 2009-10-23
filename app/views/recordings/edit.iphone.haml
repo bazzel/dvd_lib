@@ -1,0 +1,16 @@
+%div
+  .toolbar
+    %h1= @recording.name
+    = link_to('Back', '#', :class => 'back')
+  .autosubmitting
+    - form_for @recording do |f|
+      %ul.edit
+        %li
+          - if @recording.photo
+            .photo= image_tag(@recording.photo.url(:iphone))
+          .name= @recording.name
+          .genres= @recording.genres(&:name).join(', ')
+          .description= @recording.description
+        %li 
+          Seen
+          %span.toggle= f.check_box :seen
