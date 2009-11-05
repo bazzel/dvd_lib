@@ -1,0 +1,4 @@
+thoughtbot-factory_girl  >= 1.2.2
+justinfrench-formtastic  
+mislav-will_paginate  ~> 2.3.11
+searchlogic
