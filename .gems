@@ -1,4 +1,5 @@
-thoughtbot-factory_girl  >= 1.2.2
-justinfrench-formtastic  
-mislav-will_paginate  ~> 2.3.11
+haml
+thoughtbot-factory_girl --lib 'factory_girl' --source "http://gems.github.com" --version '>=1.2.2'
+justinfrench-formtastic --lib 'formtastic' --source 'http://gems.github.com'
+mislav-will_paginate --version '~> 2.3.11' --lib 'will_paginate' --source 'http://gems.github.com'
 searchlogic
