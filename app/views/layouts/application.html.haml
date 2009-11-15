@@ -26,11 +26,11 @@
       #header
         %h1= link_to("DVD Lib", root_path)
         #user-navigation
-          / %ul
-          /   %li= link_to 'Profile', '#'
-          /   %li= link_to 'Settings', '#'
-          /   %li= link_to 'Logout', '#'
-          / .clear
+          %ul
+            /   %li= link_to 'Profile', '#'
+            /   %li= link_to 'Settings', '#'
+            %li= link_to 'Logout', logout_path
+          .clear
         #main-navigation
           %ul
             %li{:class => controller.controller_path == 'discs' ? 'active' : ''}= link_to('Discs', discs_path)

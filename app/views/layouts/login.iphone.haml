@@ -1,0 +1,12 @@
+!!! Strict
+%html{html_attrs}
+  
+  %head
+    %title= sanitize(["DVD Lib", yield(:title)].reject{|k|k.blank?}.join(' - '))
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag 'jqt/jqtouch.min', 'jqt/themes/apple/theme.min'
+    %style{:type => "text/css", :media => "screen"}
+      body > * { display: block;}
+  
+  %body
+    = yield

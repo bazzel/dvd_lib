@@ -1,0 +1,27 @@
+!!! Strict
+%html{html_attrs}
+  
+  %head
+    %title= sanitize(["DVD Lib", yield(:title)].reject{|k|k.blank?}.join(' - '))
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = javascript_include_tag 'application'
+
+    = stylesheet_link_tag 'web_app_theme', "themes/drastic-dark/style", "web_app_theme_override"
+    = stylesheet_link_tag 'buttons'
+    = silksprite_stylesheets
+    = stylesheet_link_tag "formtastic", "formtastic_changes"
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+  
+  %body
+    #container
+      #header
+        %h1= link_to("DVD Lib", root_path)
+      #box
+        #block-login.block
+          %h2 Login Box
+          .content.login
+            .flash
+              - flash.each do |type, message|
+                = content_tag :div, content_tag(:p, message), :class => "message #{type}"
+            = yield

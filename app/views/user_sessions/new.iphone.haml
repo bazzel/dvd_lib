@@ -1,0 +1,8 @@
+#home
+  .toolbar
+    %h1 DVD Lib
+  - form_for @user_session, :url => user_session_path do |f|
+    %ul.edit.rounded
+      %li= f.text_field :username, :placeholder => 'Username'
+      %li= f.password_field :password, :placeholder => 'Password'
+      %li= f.check_box :remember_me, :title => 'Remember me'
