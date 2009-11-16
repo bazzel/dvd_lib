@@ -8,19 +8,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :persistence_token
       t.timestamps
     end
-    
-    username = ask "Enter username:"
-    password = ask "Enter password:"
-    User.create(:username => username, :password => password, :password_confirmation => password, :email => 'john.doe@somewhere.com')
   end
 
   def self.down
     drop_table :users
   end
   
-  private
-  def self.ask(message)
-    print message
-    STDIN.gets.chomp
-  end
 end
