@@ -11,7 +11,7 @@ class Disc < ActiveRecord::Base
   
   ## Delegates
   delegate :seen?, :to => :latest_recording, :allow_nil => true
-  delegate :photo, :to => :latest_recording, :allow_nil => true
+  delegate :photo_url, :to => :latest_recording, :allow_nil => true
   # delegate :genres, :to => :latest_recording, :allow_nil => true
 
   # We need Rails 2.3.2 for this (both 2.3.3 and 2.3.4 ignore :include option, 

@@ -6,8 +6,8 @@
     - form_for @recording do |f|
       %ul.edit
         %li
-          - if @recording.photo
-            .photo= image_tag(@recording.photo.url(:iphone))
+          - unless @recording.photo_url.blank?
+            .photo= image_tag(@recording.photo_url, :height => "148")
           .name= @recording.name
           .genres= @recording.genres(&:name).join(', ')
           .description= @recording.description
