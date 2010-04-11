@@ -1,0 +1,7 @@
+- semantic_form_for @genre do |f|
+  - f.inputs do
+    = f.input :name
+
+  - f.buttons do
+    - button_tag("Update") do
+      = cancel_link(genres_path)

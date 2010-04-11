@@ -1,6 +1,7 @@
 class GenresController < ApplicationController
   def index
-    @genres = Genre.all
+    @search = Genre.search(params[:search])
+    @genres = @search.paginate(:per_page => 10, :page => params[:page])
   end
   
   def show

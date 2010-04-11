@@ -4,7 +4,7 @@
 
 # Both 2.3.3 and 2.3.4 contain a bug in named_scope.
 # See Disc.named_scope.
-RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -24,17 +24,9 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "authlogic"
   config.gem "haml"
-  config.gem "thoughtbot-factory_girl",
-               :lib    => "factory_girl",
-               :source => "http://gems.github.com",
-                :version => '>=1.2.2'
-  config.gem "justinfrench-formtastic", 
-               :lib     => 'formtastic', 
-               :source  => 'http://gems.github.com'
-  config.gem 'mislav-will_paginate', 
-             :version => '~> 2.3.11', 
-             :lib => 'will_paginate', 
-             :source => 'http://gems.github.com'
+  config.gem "factory_girl"
+  config.gem "formtastic"
+  config.gem 'will_paginate'
   config.gem "searchlogic"
   
   # Only load the plugins named here, in the order given (default is alphabetical).

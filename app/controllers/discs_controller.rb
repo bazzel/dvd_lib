@@ -1,5 +1,16 @@
 class DiscsController < ApplicationController
   def index
+
+    # if params[:genre_id]
+    #   genre = Genre.find(params[:genre_id])
+    #   recordings = genre.recordings
+    # 
+    #   @discs = recordings.map(&:disc).paginate(:per_page => 17, :page => params[:page])
+    # else
+    #   @search = Disc.search(params[:search])
+    #   @discs = @search.paginate(:per_page => 17, :page => params[:page])
+    # end
+
     @search = Disc.for_genre(params[:genre_id]).
                   search(params[:search])
     @discs = @search.paginate(:per_page => 17, :page => params[:page])

@@ -14,13 +14,19 @@ class Disc < ActiveRecord::Base
   delegate :photo_url, :to => :latest_recording, :allow_nil => true
   # delegate :genres, :to => :latest_recording, :allow_nil => true
 
-  # We need Rails 2.3.2 for this (both 2.3.3 and 2.3.4 ignore :include option, 
-  # see https://rails.lighthouseapp.com/projects/8994/tickets/2998-named_scope-ignores-include-option)
   named_scope :for_genre, lambda { |genre_id|
     if genre_id
-      { :select => 'discs.*',
-        :conditions => { :'genres.id' => genre_id },
-        :include => {:latest_recording => [:genres]}  }
+      {:conditions => { :'genres_recordings.genre_id' => genre_id },
+        :joins => "JOIN recordings 
+                     ON discs.id = recordings.disc_id 
+                   JOIN (SELECT disc_id, 
+                                MAX(created_at) AS created_at 
+                         FROM   recordings 
+                         GROUP  BY disc_id) g 
+                     ON recordings.disc_id = g.disc_id 
+                        AND recordings.created_at = g.created_at 
+                   JOIN genres_recordings 
+                     ON genres_recordings.recording_id = recordings.id"  }
     end
   }
   
